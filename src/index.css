@@ -1,0 +1,61 @@
+:root {
+  --bg: #f6f5f2;
+  --muted: #6b6862;
+  --text: #1c1b19;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #141412;
+    --muted: #a19d95;
+    --text: #f1efea;
+  }
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); }
+
+/* The player fills the window, as large as fits at 16:9. */
+.stage {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+.stage__player {
+  width: min(100%, calc((100dvh - 48px) * 16 / 9));
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.source-link {
+  position: fixed;
+  right: 16px;
+  bottom: 12px;
+  font-size: 0.8125rem;
+  color: var(--muted);
+  text-decoration: none;
+}
+.source-link:hover { color: var(--text); text-decoration: underline; }
+.source-link:focus-visible { outline: 2px solid var(--text); outline-offset: 2px; border-radius: 2px; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .stage { padding: 16px; gap: 12px; }
+  .stage__player { border-radius: 8px; }
+  /* The narrow board is taller than the screen, so the link sits under it instead of over it. */
+  .source-link { position: static; justify-self: end; }
+}

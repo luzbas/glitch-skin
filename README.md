@@ -28,6 +28,14 @@ import { SchematicVideoSkin } from './skins/ascii/schematic/schematic-skin';
 
 The font, JetBrains Mono, loads from Google Fonts.
 
+## iPhone Duo
+
+The skin also has a layout for foldable phones, shown on the iPhone Duo in a fold simulator: https://luzbas.github.io/glitch-skin/duo/
+
+Pick a pose (Horizontal or Vertical, each open or closed, or Table) and the player re-lays itself out for the inner display, the propped-up split or the closed outer display, without stopping the video. On a real foldable it reads the same signals from the browser (device posture and viewport segments).
+
+The Duo layout is in `src/skins/ascii/duo`, and needs `src/duo-kit` (fold detection and the simulator). Use `AsciiDuoSkin` from `./skins/ascii/duo/ascii-duo-skin` in place of the regular skin. The simulator page is `duo/index.html`.
+
 ## Run locally
 
 ```bash
